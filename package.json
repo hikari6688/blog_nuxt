@@ -11,10 +11,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "axios": "^0.19.2",
     "cross-env": "^5.2.0",
+    "iview": "^3.1.5",
     "koa": "^2.6.2",
-    "iview": "^3.1.5"
+    "nuxt": "^2.0.0",
+    "nyan-bar": "^0.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

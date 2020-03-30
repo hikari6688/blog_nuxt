@@ -1,63 +1,87 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        Nuxt_blog
-      </h1>
-      <h2 class="subtitle">
-        Welcome to the iView + Nuxt.js template
-      </h2>
-      <div class="links">
-        <Button type="primary" target="_blank" to="https://nuxtjs.org/">
-          Documentation
-        </Button>
-        <Button target="_blank" to="https://github.com/nuxt/nuxt.js">
-          GitHub
-        </Button>
-        <Button target="_blank" to="https://www.iviewui.com/">
-          iView
-        </Button>
+  <div class="wrapper">
+    <div class="temp" v-for="(item, index) in essayData" :key="index">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.intro }}</p>
+      <div>
+        <div class="tagList">
+          <Tag
+            v-for="(item_t, index_t) in item.tag"
+            :key="index_t"
+            :color="colorList[index]"
+            >{{ item_t }}</Tag
+          >
+        </div>
+        <div class="date">
+          <Icon type="md-time" />
+          <span>{{ new Date(Date.parse(item.createTime)).toLocaleDateString()}}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
-import Logo from '~/components/Logo.vue'
+import { getEssayList } from "../plugins/request";
 export default {
-  components: {
-    Logo
+  asyncData() {
+    return getEssayList({
+      each: 10,
+      currentPage: 1
+    }).then(res => {
+      console.log(res);
+      const t = res.data.map(item => {
+        item.tag = JSON.parse(item.tag);
+        return item;
+      });
+      return {
+        essayData:t
+      };
+    });
+  },
+  data() {
+    return {
+      colorList: ["primary", "success", "warning"]
+      // tagList: ["好吃", "好玩", "好看"]
+    };
   }
-}
+};
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
+<style scoped>
+.wrapper {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
+  padding: 20px 0;
 }
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.temp {
+  max-width: 800px;
+  min-width: 600px;
+  padding: 20px 30px 10px 30px;
+  box-sizing: border-box;
+  color: white;
+  box-shadow: 4px 4px 10px #888888;
+  border-radius: 6px;
+  margin-bottom: 28px;
+  background-color: #fff;
 }
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.temp h3 {
+  font-size: 18px;
+  color: rgb(81, 90, 110);
 }
-.links {
-  padding-top: 15px;
+.temp p {
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: rgb(81, 90, 110);
+  padding: 6px 0;
+}
+.tagList {
+  display: flex;
+}
+.date {
+  font-size: 14px;
+  padding: 5px 0;
+  color: rgb(81, 90, 110);
 }
 </style>
