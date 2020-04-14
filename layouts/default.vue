@@ -1,9 +1,8 @@
 <template>
   <div>
     <div class="container">
-      <Menu mode="horizontal" theme="dark" active-key="1">
+      <!-- <Menu mode="horizontal" theme="dark" active-key="1">
         <div class="layout-logo">
-          <!-- <img src="" alt="" /> -->
           <Icon type="social-snapchat-outline"></Icon>
           <span>Azuna</span>
         </div>
@@ -25,15 +24,33 @@
             <span>记录</span>
           </Menu-item>
         </div>
-      </Menu>
-      <div class="layout-content">
-        <nuxt />
-      </div>
-      <div class="layout-copy">
-        <div class="git_link"></div>
-        <div class="power_info">
-          <span>Powered by Nuxt | Bulid By Azuna </span>
+      </Menu> -->
+      <div class="left">
+        <div class="avatar">
+          <img src="../static/avatar.jpg" alt="" />
         </div>
+        <p class="username">Azuna</p>
+        <p class="intro">助けなどいない&nbsp;&nbsp;&nbsp;&nbsp;强くなった</p>
+        <div class="stat">
+          <div>
+            <span>14</span>
+            <span>日志</span>
+          </div>
+          <div class="bd_line">
+            <span>5</span>
+            <span>分类</span>
+          </div>
+          <div>
+            <span>6</span>
+            <span>标签</span>
+          </div>
+        </div>
+        <div class="link">
+          <a href="https://github.com/hikari6688" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="right">
+        <nuxt />
       </div>
     </div>
   </div>
@@ -49,6 +66,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+a {
+  color: #f5f7f9;
+}
+.container {
+  display: flex;
 }
 .layout {
   border: 1px solid #d7dde4;
@@ -90,10 +113,10 @@ html {
   left: 0;
   right: 0;
   overflow: hidden;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   border-radius: 4px;
   overflow-y: auto;
-  padding:20px 120px ;
+  padding: 20px 120px;
 }
 .layout-content-main {
   padding: 10px;
@@ -118,8 +141,76 @@ html {
   font-size: 16px;
   color: white;
 }
-.ivu-menu-item{
-   display: flex;
+.ivu-menu-item {
+  display: flex;
   align-items: center;
+}
+.left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  max-width: 300px;
+  background-color: #222222;
+  height: 100vh;
+  display: flex;
+  padding: 50px 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right {
+  width: 80%;
+  position: absolute;
+  right: 0;
+  padding-left: 0 50px;
+  flex: 1;
+}
+.avatar {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+}
+.avatar img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+.username {
+  padding: 5px 0;
+  font-size: 18px;
+  color: white;
+}
+.intro {
+  padding: 5px 0;
+  font-size: 14px;
+  color: rgb(221, 219, 219);
+}
+.stat {
+  display: flex;
+}
+.stat span {
+  color: #d7dde4;
+  font-size: 14px;
+}
+.stat > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
+  text-align: center;
+}
+.bd_line {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+.link {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 2px 0;
+  font-size: 16px;
+}
+.link:hover {
+  transition: linear all 0.2;
+  border-bottom: 2px solid white;
 }
 </style>
