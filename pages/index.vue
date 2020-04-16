@@ -14,7 +14,7 @@
         </div>
         <div class="content">
           <div class="cover">
-            <img :src="item.cover" alt="" />
+            <img :src="item.cover?item.cover:''" alt="" />
           </div>
           <p>
             {{ item.intro }}
@@ -45,7 +45,11 @@ export default {
       currentPage: 1
     }).then(res => {
       const t = res.data.map(item => {
-        item.tag = JSON.parse(item.tag);
+        try {
+           item.tag = JSON.parse(item.tag);
+        } catch (error) {
+           
+        }
         return item;
       });
       return {

@@ -1,31 +1,27 @@
 <template>
   <div>
     <div class="container">
-      <!-- <Menu mode="horizontal" theme="dark" active-key="1">
-        <div class="layout-logo">
-          <Icon type="social-snapchat-outline"></Icon>
-          <span>Azuna</span>
-        </div>
-        <div class="layout-nav" >
-          <Menu-item key="1">
-            <Icon type="logo-javascript" class="icon_set"></Icon>
-            <span>前端</span>
-          </Menu-item>
-          <Menu-item key="2">
-            <Icon type="logo-nodejs" class="icon_set"></Icon>
-            <span>服务端</span>
-          </Menu-item>
-          <Menu-item key="3">
-            <Icon type="ios-leaf" class="icon_set"></Icon>
-            <span>语言</span>
-          </Menu-item>
-          <Menu-item key="4">
-            <Icon type="logo-snapchat" class="icon_set"></Icon>
-            <span>记录</span>
-          </Menu-item>
-        </div>
-      </Menu> -->
       <div class="left">
+        <div class="animals">
+          <div class="ani_item">
+            <img src="../static/20200403204514_4ePLm.jpeg" alt="" />
+          </div>
+          <div class="ani_item">
+            <img src="../static/20200403204520_H2cti.jpeg" alt="" />
+          </div>
+          <div class="ani_item">
+            <img src="../static/20200403204526_ESVUY.jpeg" alt="" />
+          </div>
+          <div class="ani_item">
+            <img src="../static/20200403204609_2JYSz.jpeg" alt="" />
+          </div>
+          <div class="ani_item">
+            <img src="../static/20200403204618_d2Ucc.jpg" alt="" />
+          </div>
+          <div class="ani_item">
+            <img src="../static/20200403204640_mNNyA.jpg" alt="" />
+          </div>
+        </div>
         <div class="avatar">
           <img src="../static/avatar.jpg" alt="" />
         </div>
@@ -212,5 +208,15 @@ a {
 .link:hover {
   transition: linear all 0.2;
   border-bottom: 2px solid white;
+}
+.ani_item img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+.animals {
+  position: absolute;
+  right: -100px;
+  height: 100vh;
 }
 </style>
