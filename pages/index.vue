@@ -139,13 +139,14 @@ export default {
 }
 .cover {
   height: 100px;
-  width: 100px;
+  width: 120px;
   object-fit: cover;
 }
 .cover img {
   display: block;
   height: 100px;
-  width: 100px;
+  width: 120px;
+  object-fit: cover;
 }
 .getMore {
   width: 100%;
