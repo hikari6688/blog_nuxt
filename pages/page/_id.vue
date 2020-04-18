@@ -3,8 +3,7 @@
     <!-- 文章页面 -->
     <div class="article">
       <h3 class="title">{{ pageData.title }}</h3>
-      <div class="content" v-html="pageData.content">
-      </div>
+      <div class="content" v-html="pageData.content"></div>
     </div>
   </div>
 </template>
@@ -12,21 +11,18 @@
 import { getEssayById } from "../../plugins/request";
 export default {
   data() {
-    return {
-    };
+    return {};
   },
-  mounted() {
-  },
+  mounted() {},
   asyncData(context) {
     return getEssayById({
       id: context.route.query.id
-    }).then(res=>{
-      if(res.status=='200'){
-        return{
-          pageData:{ ...res.data }
-        }
-      }else{
-        
+    }).then(res => {
+      if (res.status == "200") {
+        return {
+          pageData: { ...res.data }
+        };
+      } else {
       }
     });
   }
@@ -39,6 +35,7 @@ export default {
   justify-content: cnter;
   width: 100%;
   padding: 40px 40px;
+
   .title {
     text-align: center;
     font-size: 30px;
@@ -47,12 +44,12 @@ export default {
   }
   .content {
     font-size: 16px;
+    /deep/ pre {
+      display: block;
+      background-color: #424242;
+      color: antiquewhite;
+      padding: 10px;
+    }
   }
-  pre {
-  display: block;
-  background-color: #424242;
-  color: antiquewhite;
-  padding: 10px;
-}
 }
 </style>
