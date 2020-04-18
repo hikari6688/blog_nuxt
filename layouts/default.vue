@@ -166,7 +166,7 @@ body {
   top: 0;
   left: 0;
   width: 20%;
-  max-width: 300px;
+  /* max-width: 300px; */
   background-color: #222222;
   height: 100vh;
   display: flex;
@@ -257,4 +257,36 @@ body {
   transform: translateX(10px);
   opacity: 0;
 }
+
+/* 媒体查询 */
+@media (max-width: 1200px) { 
+  .animals{
+    display: none;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .left{
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    height: 200px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-width: 100vw;
+  }
+  .stat{
+    display: none;
+  }
+  .link{
+    display: none;
+  }
+  .right{
+    width: 100vw;
+    position: unset;
+  }
+ ;
+  }
 </style>

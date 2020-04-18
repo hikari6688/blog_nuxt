@@ -136,6 +136,8 @@ export default {
   font-size: 15px;
   color: #555;
   padding-left: 20px;
+  /* word-break: break-all; */
+  text-align: justify;
 }
 .cover {
   height: 100px;
@@ -192,4 +194,18 @@ export default {
   color: #fff;
   border: 2px solid #000;
 }
+/* 媒体查询 */
+@media (max-width: 1200px) { 
+  .stencil{
+    width: 100%;
+  }
+ }
+  @media (max-width: 800px) {
+   .cover{
+    display: none;
+  }
+  .tagList{
+    display: none;
+  }
+ }
 </style>

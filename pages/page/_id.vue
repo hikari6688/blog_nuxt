@@ -38,6 +38,7 @@ export default {
 }
 .content {
   font-size: 16px;
+  text-align: justify;
 }
 /deep/ pre {
   display: block;
@@ -51,4 +52,9 @@ export default {
   font-weight: 600;
   margin-bottom: 20px;
 }
+@media (max-width: 1200px) { 
+  .main{
+    width: 100%;
+    padding: 0;
+  }}
 </style>
