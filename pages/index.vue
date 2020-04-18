@@ -4,7 +4,7 @@
       <div class="stencil">
         <h3 class="title">{{ item.title }}</h3>
         <div class="date">
-         <Icon type="md-calendar" />
+          <Icon type="md-calendar" />
           <span
             >Posted on
             {{
@@ -14,7 +14,7 @@
         </div>
         <div class="content">
           <div class="cover">
-            <img :src="item.cover?item.cover:''" alt="" />
+            <img :src="item.cover ? item.cover : ''" alt="" />
           </div>
           <p>
             {{ item.intro }}
@@ -29,7 +29,9 @@
           >
         </div>
         <div class="getMore">
-          <div class="getMore_btn">Read more »</div>
+          <div class="getMore_btn" @click="toArticle(item._id)">
+            Read more »
+          </div>
         </div>
         <div class="divison"></div>
       </div>
@@ -46,10 +48,8 @@ export default {
     }).then(res => {
       const t = res.data.map(item => {
         try {
-           item.tag = JSON.parse(item.tag);
-        } catch (error) {
-           
-        }
+          item.tag = JSON.parse(item.tag);
+        } catch (error) {}
         return item;
       });
       return {
@@ -61,6 +61,16 @@ export default {
     return {
       colorList: ["primary", "success", "warning"]
     };
+  },
+  methods: {
+    toArticle(id) {
+      this.$router.push({
+        path: "/page",
+        query: {
+          id: id
+        }
+      });
+    }
   }
 };
 </script>
@@ -167,16 +177,16 @@ export default {
   background: #ccc;
   text-align: center;
 }
-.stencil h3{
+.stencil h3 {
   text-align: center;
 }
-.stencil .date{
+.stencil .date {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.getMore_btn:hover{
+.getMore_btn:hover {
   background-color: #000;
   color: #fff;
   border: 2px solid #000;

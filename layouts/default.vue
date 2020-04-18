@@ -1,9 +1,9 @@
 <template>
+  
   <div>
     <div class="container">
-      <div class="left">
-        <div class="animals">
-          <div class="ani_item">
+         <div class="animals">
+          <div class="ani_item" @click="back">
             <img src="../static/20200403204514_4ePLm.jpeg" alt="" />
           </div>
           <div class="ani_item">
@@ -12,21 +12,13 @@
           <div class="ani_item">
             <img src="../static/20200403204526_ESVUY.jpeg" alt="" />
           </div>
-          <div class="ani_item">
-            <img src="../static/20200403204609_2JYSz.jpeg" alt="" />
-          </div>
-          <div class="ani_item">
-            <img src="../static/20200403204618_d2Ucc.jpg" alt="" />
-          </div>
-          <div class="ani_item">
-            <img src="../static/20200403204640_mNNyA.jpg" alt="" />
-          </div>
         </div>
+      <div class="left">
         <div class="avatar">
           <img src="../static/avatar.jpg" alt="" />
         </div>
         <p class="username">Azuna</p>
-        <p class="intro">助けなどいない&nbsp;&nbsp;&nbsp;&nbsp;强くなった</p>
+        <p class="intro">助けなどいない&nbsp;&nbsp;强くなった</p>
         <div class="stat">
           <div>
             <span>14</span>
@@ -42,16 +34,39 @@
           </div>
         </div>
         <div class="link">
+          <Icon type="logo-snapchat" style="color:white;margin-right:6px;" />
           <a href="https://github.com/hikari6688" target="_blank">GitHub</a>
         </div>
       </div>
       <div class="right">
-        <nuxt />
+        <transition name="slide-fade">
+          <nuxt />
+        </transition>
       </div>
     </div>
+    <BackTop></BackTop>
   </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+    back(){
+      if(this.$route.fullPath!='/'){
+        this.$router.go(-1);
+      }
+    }
+  }
+}
+</script>
+
 <style scoped>
+
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -68,10 +83,15 @@ a {
 }
 .container {
   display: flex;
+  position: relative;
 }
 .layout {
   border: 1px solid #d7dde4;
   background: #f5f7f9;
+}
+html,
+body {
+  min-height: 100vh;
 }
 .layout-logo {
   width: 100px;
@@ -158,6 +178,7 @@ a {
 .right {
   width: 80%;
   position: absolute;
+  padding: 0 10%;
   right: 0;
   padding-left: 0 50px;
   flex: 1;
@@ -174,20 +195,23 @@ a {
 }
 .username {
   padding: 5px 0;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
   color: white;
 }
 .intro {
   padding: 5px 0;
-  font-size: 14px;
+  font-size: 16px;
   color: rgb(221, 219, 219);
+  font-weight: 500;
 }
 .stat {
   display: flex;
 }
 .stat span {
   color: #d7dde4;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight:500 ;
 }
 .stat > div {
   display: flex;
@@ -205,9 +229,10 @@ a {
   padding: 10px 0 2px 0;
   font-size: 16px;
 }
+
 .link:hover {
-  transition: linear all 0.2;
-  border-bottom: 2px solid white;
+  transition: linear all 0.3;
+  border-bottom: 3px solid rgb(255, 254, 242);
 }
 .ani_item img {
   display: block;
@@ -215,8 +240,21 @@ a {
   height: 100px;
 }
 .animals {
-  position: absolute;
-  right: -100px;
+  position: fixed;
+  left:20%;
+  top: 20px;
   height: 100vh;
+  z-index: 999;
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>
