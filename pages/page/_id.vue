@@ -45,6 +45,9 @@ export default {
   background-color: #424242;
   color: antiquewhite;
   padding: 10px;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  *white-space: normal !important;
 }
 .title {
   text-align: center;
@@ -52,9 +55,10 @@ export default {
   font-weight: 600;
   margin-bottom: 20px;
 }
-@media (max-width: 1200px) { 
-  .main{
+@media (max-width: 1200px) {
+  .main {
     width: 100%;
     padding: 0;
-  }}
+  }
+}
 </style>
