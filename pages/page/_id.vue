@@ -29,27 +29,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .main {
   display: flex;
   justify-content: cnter;
   width: 100%;
   padding: 40px 40px;
-
-  .title {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  .content {
-    font-size: 16px;
-    /deep/ pre {
-      display: block;
-      background-color: #424242;
-      color: antiquewhite;
-      padding: 10px;
-    }
-  }
+}
+.content {
+  font-size: 16px;
+}
+/deep/ pre {
+  display: block;
+  background-color: #424242;
+  color: antiquewhite;
+  padding: 10px;
+}
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 </style>
