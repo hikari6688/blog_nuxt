@@ -180,7 +180,7 @@ body {
   position: absolute;
   padding: 0 10%;
   right: 0;
-  padding-left: 0 50px;
+  /* padding-left: 0 50px; */
   flex: 1;
 }
 .avatar {
