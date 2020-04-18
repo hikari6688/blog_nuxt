@@ -41,7 +41,6 @@ export default {
   data() {
     return {
       colorList: ["primary", "success", "warning"]
-      // tagList: ["好吃", "好玩", "好看"]
     };
   }
 };
