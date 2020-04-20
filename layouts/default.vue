@@ -19,7 +19,7 @@
         </div>
         <p class="username">Azuna</p>
         <p class="intro">助けなどいない&nbsp;&nbsp;强くなった</p>
-        <div class="stat">
+        <!-- <div class="stat">
           <div>
             <span>14</span>
             <span>日志</span>
@@ -32,7 +32,7 @@
             <span>6</span>
             <span>标签</span>
           </div>
-        </div>
+        </div> -->
         <div class="link">
           <Icon type="logo-snapchat" style="color:white;margin-right:6px;" />
           <a href="https://github.com/hikari6688" target="_blank">GitHub</a>
