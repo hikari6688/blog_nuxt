@@ -36,6 +36,9 @@ export default {
   width: 100%;
   padding: 40px 40px;
 }
+.article {
+  width: 100%;
+}
 .content {
   font-size: 16px;
   text-align: justify;
